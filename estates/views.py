@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render
 
 from blogs.models import Post
@@ -18,9 +19,18 @@ def main_page(request):
 
 
 def all_properties(request):
-    estates = Estate.objects.all()
+    object_list = Estate.objects.all()
+    paginator = Paginator(object_list, 6)
+    page = request.GET.get('page')
+    try:
+        estates = paginator.page(page)
+    except PageNotAnInteger:
+        estates = paginator.page(1)
+    except EmptyPage:
+        estates = paginator.page(paginator.num_pages)
 
     context = {
+        'page': page,
         'estates': estates,
         'title': 'Our All Properties'
     }

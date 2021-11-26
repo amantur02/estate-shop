@@ -80,33 +80,29 @@
         </div>
         {% endfor %}
       </div>
-      <div class="row">
-        <div class="col-sm-12">
-          <nav class="pagination-a">
-            <ul class="pagination justify-content-end">
-              <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1">
-                  <span class="ion-ios-arrow-back"></span>
-                </a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">1</a>
-              </li>
-              <li class="page-item active">
-                <a class="page-link" href="#">2</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">3</a>
-              </li>
-              <li class="page-item next">
-                <a class="page-link" href="#">
-                  <span class="ion-ios-arrow-forward"></span>
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
+
+      <div class="pagination">
+        <div class="row">
+          <div class="col-md-12">
+            <nav aria-label="Page navigation">
+              <ul class="pagination justify-content-start">
+                    {% if estates.has_previous %}
+                <li class="page-item"><a class="page-link" href="?page=1">&laquo; first</a></li>
+                <li class="page-item"><a class="page-link" href="?page={{ estates.previous_page_number }}">previous</a></li>
+                    {% endif %}
+                <li class="page-item page-link">
+                    Page {{ estates.number }} of {{ estates.paginator.num_pages }}.
+                </li>
+                    {% if estates.has_next %}
+                <li class="page-item"><a class="page-link" href="?page={{ estates.next_page_number }}">next</a></li>
+                <li class="page-item"><a class="page-link" href="?page={{ estates.paginator.num_pages }}">last &raquo;</a></li>
+                    {% endif %}
+              </ul>
+            </nav>
+          </div><!-- end col -->
+        </div><!-- end row -->
       </div>
+
     </div>
   </section>
   <!--/ Property Grid End /-->

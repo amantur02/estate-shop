@@ -26,11 +26,11 @@ class Post(models.Model):
     category = models.ForeignKey(Category, on_delete=models.SET_NULL,
                                  blank=True, null=True)
     profile = models.ForeignKey(Profile, on_delete=models.SET_NULL,
-                               blank=True, null=True)
+                                blank=True, null=True)
     title = models.CharField(max_length=40)
     heading = models.CharField(max_length=255)
     text = models.TextField()
-    image = models.CharField(max_length=255)
+    image = models.ImageField(upload_to='blogs')
     date_created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -39,10 +39,10 @@ class Post(models.Model):
 
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
-    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    author = models.ForeignKey(Profile, on_delete=models.CASCADE)
     text = models.TextField()
     parent = models.ForeignKey('self', null=True, blank=True,
-                               related_name='replies', on_delete=models.CASCADE)
+                               related_name='replies', on_delete=models.CASCADE, default=None)
     date_created = models.DateTimeField(auto_now_add=True)
 
     class Meta:
