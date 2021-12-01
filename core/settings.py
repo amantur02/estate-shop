@@ -15,7 +15,7 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 import django_heroku
 from django.core.checks import database
-import dj-database-url
+import dj_database_url
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -101,7 +101,7 @@ WSGI_APPLICATION = 'core.wsgi.application'
 #     }
 # }
 
-db_from_env = dj-database-url.config()
+db_from_env = dj_database_url.config()
 DATABASE['default'].update(db_from_env)
 
 # Password validation
