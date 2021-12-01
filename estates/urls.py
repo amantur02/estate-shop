@@ -1,8 +1,8 @@
 from django.urls import path
-from .views import main_page, all_properties, new_properties, rent_properties, sale_properties, single_estate
+from .views import main_page, all_properties, new_properties, rent_properties, sale_properties, estate_detail
 
 urlpatterns = [
-    path('single-estate/<int:pk>/', single_estate, name='single_estate'),
+    path('single-detail/<int:pk>/', estate_detail, name='estate_detail'),
     path('properties/', all_properties, name='properties'),
     path('new-properties/', new_properties, name='new_properties'),
     path('rent-properties/', rent_properties, name='rent_properties'),

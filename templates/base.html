@@ -150,21 +150,31 @@
             <a class="nav-link" href="{% url 'main_page' %}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="about.html">About</a>
+            <a class="nav-link active" href="{% url 'about' %}">About</a>
           </li>
 <!--          <li class="nav-item">-->
-<!--            <a class="nav-link" href="property-grid.html">Property</a>-->
+<!--            <a class="nav-link" href="{% url 'properties' %}">Property</a>-->
 <!--          </li>-->
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'posts' %}">Blog</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Blog
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="{% url 'posts' %}">All Blogs</a>
+              {% if user.is_authenticated %}
+              <a class="dropdown-item" href="{% url 'create_post' %}">Create Post</a>
+              <a class="dropdown-item" href="{% url 'my_posts' %}">My Posts</a>
+              {% endif %}
+            </div>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
-              Pages
+              Property
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="{% url 'properties' %}">All property</a>
+              <a class="dropdown-item" href="{% url 'properties' %}">All properties</a>
               <a class="dropdown-item" href="{% url 'new_properties' %}">New to Old</a>
               <a class="dropdown-item" href="{% url 'rent_properties' %}">For Rent</a>
               <a class="dropdown-item" href="{% url 'sale_properties' %}">For Sale</a>
@@ -217,9 +227,9 @@
             <div class="w-footer-a">
               <ul class="list-unstyled">
                 <li class="color-a">
-                  <span class="color-text-a">Phone .</span> contact@example.com</li>
+                  <span class="color-text-a">Phone .</span> +996 222 222 676</li>
                 <li class="color-a">
-                  <span class="color-text-a">Email .</span> +54 356 945234</li>
+                  <span class="color-text-a">Email .</span> amantur.ubaid@gmail.com</li>
               </ul>
             </div>
           </div>
@@ -294,47 +304,47 @@
           <nav class="nav-footer">
             <ul class="list-inline">
               <li class="list-inline-item">
-                <a href="#">Home</a>
+                <a href="{% url 'main_page' %}">Home</a>
               </li>
               <li class="list-inline-item">
-                <a href="#">About</a>
+                <a href="{% url 'about' %}">About</a>
               </li>
               <li class="list-inline-item">
-                <a href="#">Property</a>
+                <a href="{% url 'properties' %}">Property</a>
               </li>
               <li class="list-inline-item">
-                <a href="#">Blog</a>
+                <a href="{% url 'posts' %}">Blog</a>
               </li>
               <li class="list-inline-item">
-                <a href="#">Contact</a>
+                <a href="{% url 'about' %}">Contact</a>
               </li>
             </ul>
           </nav>
           <div class="socials-a">
             <ul class="list-inline">
               <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-facebook" aria-hidden="true"></i>
+                <a href="https://t.me/AmanturUbaid" class="link-one">
+                  <i class="fa fa-telegram" aria-hidden="true"></i>
                 </a>
               </li>
               <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-twitter" aria-hidden="true"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
+                <a href="https://instagram.com/joellare02?utm_medium=copy_link" class="link-one">
                   <i class="fa fa-instagram" aria-hidden="true"></i>
                 </a>
               </li>
               <li class="list-inline-item">
-                <a href="#">
+                <a href="https://pin.it/6A515rl" class="link-one">
                   <i class="fa fa-pinterest-p" aria-hidden="true"></i>
                 </a>
               </li>
               <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-dribbble" aria-hidden="true"></i>
+                <a href="https://wa.me/+996709298600" class="link-one">
+                  <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://github.com/Amantur-344" class="link-one">
+                  <i class="fa fa-github" aria-hidden="true"></i>
                 </a>
               </li>
             </ul>

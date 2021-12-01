@@ -67,7 +67,7 @@ def sale_properties(request):
     return render(request, 'estates/property-grid.html', context)
 
 
-def single_estate(request, pk):
+def estate_detail(request, pk):
     estate = Estate.objects.filter(id=pk).first()
 
     context = {

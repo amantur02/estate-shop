@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.core.checks import messages
 from django.shortcuts import render, redirect
 
 from estates.models import Estate
@@ -7,14 +8,18 @@ from .models import Profile
 
 
 def register(request):
+    error = ''
     if request.method == 'POST':
         form = ProfileRegistrationForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('login')
+        else:
+            error = 'Form is not valid, try again'
     form = ProfileRegistrationForm()
     context = {
-        'form': form
+        'form': form,
+        'error': error
     }
     return render(request, 'users/register.html', context)
 
@@ -42,3 +47,7 @@ def profile_detail(request, pk):
         'estates': estates
     }
     return render(request, 'users/user-single.html', context)
+
+
+def about(request):
+    return render(request, 'users/agent-single.html')

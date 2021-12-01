@@ -25,8 +25,8 @@ class Category(models.Model):
 class Post(models.Model):
     category = models.ForeignKey(Category, on_delete=models.SET_NULL,
                                  blank=True, null=True)
-    profile = models.ForeignKey(Profile, on_delete=models.SET_NULL,
-                                blank=True, null=True)
+    author = models.ForeignKey(Profile, on_delete=models.SET_NULL,
+                               blank=True, null=True)
     title = models.CharField(max_length=40)
     heading = models.CharField(max_length=255)
     text = models.TextField()

@@ -15,12 +15,22 @@
         <div class="col-md-12 col-lg-4">
           <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
             <ol class="breadcrumb">
+              {% if author %}
+              <li class="breadcrumb-item">
+                <a href="{% url 'delete_post' post.id %}">Delete</a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+                <a href="{% url 'update_post' post.id %}">Update Post</a>
+              </li>
+              {% else %}
               <li class="breadcrumb-item">
                 <a href="#">Home</a>
               </li>
               <li class="breadcrumb-item active" aria-current="page">
                 {{ post.title }}
               </li>
+              {% endif %}
+
             </ol>
           </nav>
         </div>
@@ -43,7 +53,7 @@
             <ul class="list-inline text-center color-a">
               <li class="list-inline-item mr-2">
                 <strong>Author: </strong>
-                <span class="color-text-a">{{ post.profile.username }}</span>
+                <span class="color-text-a">{{ post.author.username }}</span>
               </li>
               <li class="list-inline-item mr-2">
                 <strong>Category: </strong>
