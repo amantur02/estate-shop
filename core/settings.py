@@ -14,6 +14,8 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 import django_heroku
+from django.core.checks import database
+import dj-database-url
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -27,7 +29,7 @@ SECRET_KEY = 'django-insecure--n-pw5o1_ghtnm7bn8eou%!ljl8x&6$gaq&zo09c4l(j182ns-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['estate-shop.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -88,18 +90,19 @@ WSGI_APPLICATION = 'core.wsgi.application'
 #     }
 # }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd587j1arjadoff',
-        'USER': 'ihlcvoqunthhfa',
-        'PASSWORD': '741344ff4e388b8a1efa3bc5c58385bdf10022c1782d6052554fb2f902c906f0',
-        'HOST': 'ec2-3-208-157-78.compute-1.amazonaws.com',
-        'PORT': '5432',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'd587j1arjadoff',
+#         'USER': 'ihlcvoqunthhfa',
+#         'PASSWORD': '741344ff4e388b8a1efa3bc5c58385bdf10022c1782d6052554fb2f902c906f0',
+#         'HOST': 'ec2-3-208-157-78.compute-1.amazonaws.com',
+#         'PORT': '5432',
+#     }
+# }
 
-
+db_from_env = dj-database-url.config()
+DATABASE['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
