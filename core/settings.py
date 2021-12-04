@@ -9,7 +9,7 @@ SECRET_KEY = 'django-insecure--n-pw5o1_ghtnm7bn8eou%!ljl8x&6$gaq&zo09c4l(j182ns-
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['estate-shop.herokuapp.com']
 
 
 INSTALLED_APPS = [
@@ -57,23 +57,23 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'core.wsgi.application'
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'd587j1arjadoff',
-#         'USER': 'ihlcvoqunthhfa',
-#         'PASSWORD': '741344ff4e388b8a1efa3bc5c58385bdf10022c1782d6052554fb2f902c906f0',
-#         'HOST': 'ec2-3-208-157-78.compute-1.amazonaws.com',
-#         'PORT': '5432',
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd68jmvgiqhfjlm',
+        'USER': 'fbprzkrwkgbchs',
+        'PASSWORD': 'd2d4a31d5bdc7bbed82da50255fb63220dad8ad829c6a9c054d3db8886e19269',
+        'HOST': 'ec2-34-205-230-1.compute-1.amazonaws.com',
+        'PORT': '5432',
+    }
+}
 
 
 AUTH_PASSWORD_VALIDATORS = [

@@ -1,1 +1,1 @@
-web: gunicorn --chdir estate-shop core.wsgi
+web: gunicorn estate-shop core.wsgi
