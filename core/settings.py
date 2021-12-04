@@ -9,7 +9,7 @@ SECRET_KEY = 'django-insecure--n-pw5o1_ghtnm7bn8eou%!ljl8x&6$gaq&zo09c4l(j182ns-
 
 DEBUG = True
 
-ALLOWED_HOSTS = ["0.0.0.0", "127.0.0.1", "estate-shop.herokuapp.com"]
+ALLOWED_HOSTS = ["0.0.0.0", "estate-shop.herokuapp.com", "localhost", "127.0.0.1"]
 
 
 INSTALLED_APPS = [
