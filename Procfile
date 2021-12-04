@@ -1,1 +1,1 @@
-web: gunicorn estate-shop.wsgi
+web: gunicorn core.wsgi --log-file -
