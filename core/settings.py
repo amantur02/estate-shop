@@ -71,10 +71,10 @@ db_from_env = dj_database_url.config()
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd47bs5q4arl9bm',
-        'USER': 'zsfjhzvartszka',
-        'PASSWORD': 'c51f3b27f51699b686f1931b0178f3671cf9b19cb8e39736efb5ca8a2444bbc8',
-        'HOST': 'ec2-54-146-116-84.compute-1.amazonaws.com',
+        'NAME': 'db9saf20klegit',
+        'USER': 'dnphewgwauuhgn',
+        'PASSWORD': '2c1b75bdc409d6f68d8a68a6bc0daf22cc256a2df6be02f1c9b889ee5a041d65',
+        'HOST': 'ec2-23-23-219-25.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
