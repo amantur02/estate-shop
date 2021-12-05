@@ -2,6 +2,7 @@ import os
 from pathlib import Path
 
 import django_heroku
+import dj_database_url
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,11 +26,10 @@ INSTALLED_APPS = [
     'estates',
 
     'crispy_forms',
-    'whitenoise.runserver_nostatic',
-
 ]
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -37,7 +37,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
 ROOT_URLCONF = 'core.urls'
@@ -67,13 +66,15 @@ WSGI_APPLICATION = 'core.wsgi.application'
 #     }
 # }
 
+db_from_env = dj_database_url.config()
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd68jmvgiqhfjlm',
-        'USER': 'fbprzkrwkgbchs',
-        'PASSWORD': 'd2d4a31d5bdc7bbed82da50255fb63220dad8ad829c6a9c054d3db8886e19269',
-        'HOST': 'ec2-34-205-230-1.compute-1.amazonaws.com',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd7usmfdrg4blsc',
+        'USER': 'mdouneyhpfgjng',
+        'PASSWORD': '995d8a11f09acff6b92d1885d720a003dac927414aa69a1bf2cf3bbda612bea3',
+        'HOST': 'ec2-3-95-130-249.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
